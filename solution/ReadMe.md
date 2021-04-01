@@ -34,6 +34,7 @@ Added Prometheus and Grafana for Fun
 ```
 docker-compose up &
 ```
+![Prometheus](Prometheus.png)
 
 For Grafana, Did the configuration manually, `http://localhost:3000` and use the default password as `admin/admin` and configure the DS as to use Prometheus with server as `browser` with hostname as `http://localhost:9090`. 
 
