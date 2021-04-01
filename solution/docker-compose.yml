@@ -1,0 +1,14 @@
+version: '3'
+
+services:
+  csv_app:
+     image: infracloudio/csvserver:latest
+     user: root
+     environment:
+       - CSVSERVER_BORDER=Orange
+     ports:
+       - '9393:9300'    
+     volumes:
+       - /tmp/InfraCloud/csvserver/solution/inputFile:/csvserver/inputdata
+      
+    
