@@ -1,8 +1,9 @@
 version: '3'
 
 services:
-  csv_app:
+  csvserver:
      image: infracloudio/csvserver:latest
+     container_name: csvserver
      user: root
      environment:
        - CSVSERVER_BORDER=Orange
@@ -10,5 +11,18 @@ services:
        - '9393:9300'    
      volumes:
        - /tmp/InfraCloud/csvserver/solution/inputFile:/csvserver/inputdata
+
       
-    
+  prometheus:
+     image: prom/prometheus:v2.22.0
+     container_name: prometheus
+     ports:
+      - '9090:9090'
+     volumes:
+      - /tmp/InfraCloud/csvserver/solution/prometheus.yml:/etc/prometheus/prometheus.yml
+
+  grafana:
+     image: grafana/grafana
+     container_name: grafana
+     ports:
+      - '3000:3000'
